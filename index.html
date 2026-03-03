@@ -86,7 +86,7 @@ function jawabYes(){
     document.getElementById("gabutText").innerHTML = "Serius nih gabut? 😏";
   }
   else if(stepGabut == 2){
-    document.getElementById("gabutText").innerHTML = "Gabut banget sampe buka beginian? 😭";
+    document.getElementById("gabutText").innerHTML = "Gabut banget? 😭";
   }
   else if(stepGabut == 3){
     document.getElementById("gabutText").innerHTML = "Fix gabut stadium akhir ya? 🤣";
@@ -120,7 +120,7 @@ function kabur(){
 }
 
 function launchConfetti(){
-  for(let i=0;i<150;i++){
+  for(let i=0;i<500;i++){
     let conf = document.createElement("div");
     conf.classList.add("confetti");
     conf.style.left = Math.random()*100 + "vw";
