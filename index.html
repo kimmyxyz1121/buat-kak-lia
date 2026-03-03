@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>buat Kak lia xixixi</title>
+
+<style>
+body{
+  text-align:center;
+  font-family:sans-serif;
+  margin-top:100px;
+  background:#0f0f0f;
+  color:white;
+  overflow:hidden;
+  transition:1s;
+}
+
+h2, h3 {
+  transition: 0.5s;
+}
+
+.section{
+  display:none;
+  opacity:0;
+  transition:0.5s;
+}
+
+.show{
+  display:block;
+  opacity:1;
+}
+
+button{
+  padding:10px 20px;
+  font-size:18px;
+  margin:10px;
+  cursor:pointer;
+}
+
+#noBtn{
+  position:absolute;
+}
+
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  width:10px;
+  height:10px;
+  top:-10px;
+  animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(100vh) rotate(720deg);
+  }
+}
+</style>
+
+<script>
+
+let stepGabut = 1;
+
+function show(id){
+  let all = document.querySelectorAll(".section");
+  all.forEach(s => s.classList.remove("show"));
+  document.getElementById(id).classList.add("show");
+}
+
+function startBGM(){
+  document.getElementById("bgm").play();
+}
+
+function next1(){
+  startBGM();
+  show("s2");
+}
+
+function next2(){
+  show("gabut");
+}
+
+function jawabYes(){
+  if(stepGabut == 1){
+    document.getElementById("gabutText").innerHTML = "Serius nih gabut? 😏";
+  }
+  else if(stepGabut == 2){
+    document.getElementById("gabutText").innerHTML = "Gabut banget sampe buka beginian? 😭";
+  }
+  else if(stepGabut == 3){
+    document.getElementById("gabutText").innerHTML = "Fix gabut stadium akhir ya? 🤣";
+  }
+  else{
+    // PINK MODE
+    document.body.style.background = "#ffb6c1";
+    document.body.style.color = "#222";
+
+    launchConfetti();
+
+    setTimeout(function(){
+      show("waSection");
+    }, 1500);
+
+    return;
+  }
+  stepGabut++;
+}
+
+function kabur(){
+  let maxX = window.innerWidth - 150;
+  let maxY = window.innerHeight - 80;
+
+  let x = Math.random() * maxX;
+  let y = Math.random() * maxY;
+
+  let btn = document.getElementById("noBtn");
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+
+function launchConfetti(){
+  for(let i=0;i<150;i++){
+    let conf = document.createElement("div");
+    conf.classList.add("confetti");
+    conf.style.left = Math.random()*100 + "vw";
+    conf.style.backgroundColor =
+      "hsl(" + Math.random()*360 + ", 100%, 50%)";
+    conf.style.animationDuration = (2 + Math.random()*2) + "s";
+    document.body.appendChild(conf);
+
+    setTimeout(()=>{ conf.remove(); },4000);
+  }
+}
+
+window.onload = function(){
+  show("s1");
+}
+
+</script>
+
+</head>
+<body>
+
+<audio id="bgm" loop>
+  <source src="https://files.catbox.moe/5d7l0q.mp3" type="audio/mpeg">
+</audio>
+
+<div id="s1" class="section">
+  <h2>Halo kak liaaa yang cantikkk 😌✨</h2>
+  <button onclick="next1()">Next</button>
+</div>
+
+<div id="s2" class="section">
+  <h2>Eh, Kakak atau mbak ya? 🤔</h2>
+  <button onclick="next2()">Next</button>
+</div>
+
+<div id="gabut" class="section">
+  <h2 id="gabutText">kakaknya lagi gabut ya? 😏</h2>
+  <button onclick="jawabYes()">Yes</button>
+  <button id="noBtn" onmouseover="kabur()">No</button>
+</div>
+
+<div id="waSection" class="section">
+  <h2>Akhirnya mengaku juga 😎🔥</h2>
+  <h3>Pesan sudah disiapkan... tinggal kirim yaa 😌</h3>
+
+  <a href="https://wa.me/6281339263179?text=Aku%20resmi%20mengakui%20kalo%20aku%20gabut%20stadium%20akhir%20dan%20butuh%20pemadam%20kegabutan%20segera%20😭🔥">
+    <button onclick="alert('Menghubungkan ke Pemadam Kegabutan 😏🔥')">
+      Chat Pemadam Kegabutan 💬
+    </button>
+  </a>
+</div>
+
+</body>
+</html>
