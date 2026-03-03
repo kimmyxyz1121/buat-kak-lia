@@ -82,6 +82,7 @@ function next2(){
 }
 
 function jawabYes(){
+  resetNo();
   if(stepGabut == 1){
     document.getElementById("gabutText").innerHTML = "Serius nih gabut? 😏";
   }
@@ -119,6 +120,12 @@ function kabur(){
   btn.style.top = y + "px";
 }
 
+function resetNo(){
+  let btn = document.getElementById("noBtn");
+  btn.style.left = "";
+  btn.style.top = "";
+}  
+  
 function launchConfetti(){
   for(let i=0;i<500;i++){
     let conf = document.createElement("div");
