@@ -84,13 +84,13 @@ function next2(){
 function jawabYes(){
   resetNo();
   if(stepGabut == 1){
-    document.getElementById("gabutText").innerHTML = "Serius nih gabut? 😏";
+    document.getElementById("gabutText").innerHTML = "Serius nih gabut?";
   }
   else if(stepGabut == 2){
-    document.getElementById("gabutText").innerHTML = "Gabut banget? 😭";
+    document.getElementById("gabutText").innerHTML = "Gabut banget?";
   }
   else if(stepGabut == 3){
-    document.getElementById("gabutText").innerHTML = "Fix gabut stadium akhir ya? 🤣";
+    document.getElementById("gabutText").innerHTML = "Fix gabut.";
   }
   else{
     // PINK MODE
@@ -127,7 +127,7 @@ function resetNo(){
 }  
   
 function launchConfetti(){
-  for(let i=0;i<500;i++){
+  for(let i=0;i<800;i++){
     let conf = document.createElement("div");
     conf.classList.add("confetti");
     conf.style.left = Math.random()*100 + "vw";
@@ -159,7 +159,7 @@ window.onload = function(){
 </div>
 
 <div id="s2" class="section">
-  <h2>Eh, Kakak atau mbak ya? 🤔</h2>
+  <h2>Eh, Kakak atau mbak ya??</h2>
   <button onclick="next2()">Next</button>
 </div>
 
@@ -170,8 +170,8 @@ window.onload = function(){
 </div>
 
 <div id="waSection" class="section">
-  <h2>Akhirnya mengaku juga 😎🔥</h2>
-  <h3>Pesan sudah disiapkan... tinggal kirim yaa 😌</h3>
+  <h2>Yasudah, mari Kita Chat Pemadam Kegabutan...</h2>
+  <h3>Nah, ini Pesannya sudah disiapkan... tinggal kirim yaa 😌</h3>
 
   <a href="https://wa.me/6281339263179?text=Aku%20resmi%20mengakui%20kalo%20aku%20gabut%20stadium%20akhir%20dan%20butuh%20pemadam%20kegabutan%20segera%20😭🔥">
     <button onclick="alert('Menghubungkan ke Pemadam Kegabutan 😏🔥')">
